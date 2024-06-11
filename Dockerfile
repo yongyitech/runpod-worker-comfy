@@ -44,6 +44,10 @@ ADD src/extra_model_paths.yaml ./
 # Go back to the root
 WORKDIR /
 
+# download models
+ADD src/download_models.sh ./
+RUN python /download_models.py
+
 # Add the start and the handler
 ADD src/start.sh src/rp_handler.py test_input.json ./
 RUN chmod +x /start.sh
